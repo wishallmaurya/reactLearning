@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Error = () => {
+  const navigate=useNavigate()
   return (
+    <>
     <div>
       <h2> 404 page not found</h2>
       <img
@@ -13,6 +16,9 @@ const Error = () => {
       />
       ;
     </div>
+   <button onClick={()=>navigate(-1)}>GO BACK</button>
+   {/* ek page piche jayega */}
+    </>
   );
 };
 

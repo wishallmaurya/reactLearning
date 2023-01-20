@@ -10,7 +10,7 @@ const Contact = () => {
       <Link to='email'>
         <h3>Contact via Email</h3>
       </Link>
-<Outlet/>
+        <Outlet/>
     </div>
   );
 };

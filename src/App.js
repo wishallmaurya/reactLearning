@@ -7,10 +7,17 @@ import Error from "./components/Error";
 import Linkdin from "./components/Linkdin";
 import Email from "./components/Email";
 import UserDetails from "./components/UserDetails";
+import Context from "./components/Context";
+import { useState,createContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+const AppState = createContext();
 
 function App() {
+  const [data]=useState('Context data')
+  const [name]=useState('vishal')
   return (
+    <AppState.Provider value={{data,name}}>
+
     <Router>
       <div className="App">
         <Header />
@@ -20,6 +27,11 @@ function App() {
           <Route path="/:userId" element={<UserDetails />} />
 
           <Route path="/about" element={<About />} />
+
+
+            {/* context api */}
+
+          <Route path="/context" element={<Context />} />
 
           {/* nested routing */}
           <Route path="/contact" element={<Contact />}>
@@ -33,7 +45,10 @@ function App() {
         </Routes>
       </div>
     </Router>
+    </AppState.Provider>
+
   );
 }
 
 export default App;
+export {AppState};

@@ -4,6 +4,8 @@ import Home from "./components/Home";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Error from "./components/Error";
+import Linkdin from "./components/Linkdin";
+import Email from "./components/Email";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -15,7 +17,15 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
 
-          <Route path="/contact/" element={<Contact />} />
+{/* nested routing */}
+          <Route path="/contact" element={<Contact />} >
+            {/* isse default nested route me open hoga */}
+          <Route index element={<Linkdin />} />
+          <Route path="/contact/linkdin" element={<Linkdin />} />
+          <Route path="/contact/email" element={<Email />} />
+            
+            </Route>
+
           <Route path="*" element={<Error />} />
         </Routes>
       </div>
